@@ -229,6 +229,8 @@ class Display(BaseDisplay):
             rect = self.obj_to_rect(obj)
             if obj.get_oid() == engine.get_player_oid():
                 color = self.player_color
+            elif (rect < npc):
+                color = (0, 0,255)
             else:
                 color = self.opponent_color
             pygame.draw.rect(surface, color, rect)
