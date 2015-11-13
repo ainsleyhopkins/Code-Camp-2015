@@ -125,6 +125,18 @@ class Control(BaseControl):
         elif pygame.K_RIGHT in newkeys:
             engine.set_player_direction(0)
             engine.set_missile_direction(0)
+        elif pygame.K_RIGHT in keys and pygame.K_UP in keys:
+            engine.set_player_direction(315)
+            engine.set_missile_direction(315)
+        elif pygame.K_RIGHT in keys and pygame.K_DOWN in keys:
+            engine.set_player_direction(45)
+            engine.set_missile_direction(45)
+        elif pygame.K_LEFT in keys and pygame.K_UP in keys:
+            engine.set_player_direction(225)
+            engine.set_missile_direction(225)
+        elif pygame.K_LEFT in keys and pygame.K_DOWN in keys:
+            engine.set_player_direction(135)
+            engine.set_missile_direction(135)
 
         if pygame.K_1 in newkeys:
             engine.set_player_speed_stop()
@@ -141,7 +153,7 @@ class Control(BaseControl):
         elif pygame.K_s in newkeys:
             engine.set_missile_power_low()
                 
-        if pygame.K_SPACE in newkeys:
+        if pygame.K_SPACE in newbuttons:
             engine.fire_missile()
 
         if pygame.K_i in newkeys:
