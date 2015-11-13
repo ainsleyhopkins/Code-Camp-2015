@@ -7,6 +7,9 @@ import pygame
 from config import *
 from common.event import *
 from client.base_display import BaseDisplay
+import os
+from pygame.locals import *
+import display
 
 class Display(BaseDisplay):
     """
@@ -229,8 +232,19 @@ class Display(BaseDisplay):
             rect = self.obj_to_rect(obj)
             if obj.get_oid() == engine.get_player_oid():
                 color = self.player_color
+                file_path = os.path.join('display', 'images', 'alpaca1.png')
+                image = pygame.image.load(file_path)
+                image = image.convert_alpha()
+                display.pygame.draw.rect(surface, color, rect)
+                surface.blit(image, rect)
             else:
                 color = self.opponent_color
+                display.pygame.draw.rect(surface, color, rect)
+                file_path = os.path.join('display', 'images', 'llama.png')
+                image = pygame.image.load(file_path)
+                image = image.convert_alpha()
+                display.pygame.draw.rect(surface, color, rect)
+                surface.blit(image, rect)
             pygame.draw.rect(surface, color, rect)
         return
 
