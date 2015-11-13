@@ -153,7 +153,7 @@ class Control(BaseControl):
         elif pygame.K_s in newkeys:
             engine.set_missile_power_low()
                 
-        if pygame.K_SPACE in newbuttons:
+        if pygame.K_SPACE in newkeys:
             engine.fire_missile()
 
         if pygame.K_i in newkeys:
